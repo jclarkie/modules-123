@@ -4,8 +4,6 @@
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap');
-@import "./toast/toast.css";
-
 
 :root {
     --sp-red: #E8202A;
