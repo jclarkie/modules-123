@@ -1,0 +1,1118 @@
+/* ============================================================
+   SneakerPapi — Store Management & POS System
+   Dashboard Stylesheet (styles-2.css)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap');
+
+:root {
+    --sp-red: #E8202A;
+    --sp-red-dark: #B3141C;
+    --sp-red-light: #FFEAEC;
+    --sp-red-glow: rgba(232, 32, 42, 0.2);
+    --sp-black: #0B0B0B;
+    --sp-dark-surface: #181818;
+    --sp-ink: #202020;
+    --sp-muted: #6B6864;
+    --sp-paper: #F4F3F1;
+    --sp-card-bg: rgba(255, 255, 255, 0.96);
+    --sp-line: #D8D6D2;
+    --sp-border-dark: #333333;
+    
+    /* Semantic Status Colors */
+    --sp-success: #1E8E3E;
+    --sp-success-bg: #E6F4EA;
+    --sp-warning: #D97706;
+    --sp-warning-bg: #FEF3C7;
+    --sp-info: #1D4ED8;
+    --sp-info-bg: #DBEAFE;
+    --sp-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --sp-shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ---------- Page Background & Layout ---------- */
+
+body {
+    margin: 0;
+    padding: 24px 20px 60px;
+    min-height: 100vh;
+    font-family: 'Barlow', Arial, sans-serif;
+    color: var(--sp-ink);
+    background-color: var(--sp-paper);
+    background-image: url('SneakerPapi_Template.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dashboard-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* ---------- Custom Scrollbars ---------- */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #EFEFEF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #BCB9B5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sp-red);
+}
+
+/* ---------- Upper Right Logo & Header ---------- */
+
+.top-logo {
+    max-height: 75px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transition: transform 0.2s ease;
+}
+
+.top-logo:hover {
+    transform: scale(1.03);
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border-left: 10px solid var(--sp-red);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07), 0 2px 0 var(--sp-black);
+    padding: 16px 26px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header-titles h1 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--sp-black);
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.header-subtitle {
+    font-size: 13px;
+    color: var(--sp-muted);
+    font-weight: 500;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.role-switcher-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sp-paper);
+    padding: 8px 14px;
+    border: 1px solid var(--sp-line);
+}
+
+.role-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--sp-muted);
+    letter-spacing: 0.5px;
+}
+
+.role-badge {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px 10px;
+    color: #FFFFFF;
+    background: var(--sp-black);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+}
+
+.role-badge.admin {
+    background: var(--sp-red);
+}
+
+.role-badge.staff {
+    background: #374151;
+    border-left: 3px solid #6B7280;
+}
+
+.btn-secondary {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 7px 16px;
+    color: var(--sp-black);
+    background: #FFFFFF;
+    border: 1px solid var(--sp-line);
+    cursor: pointer;
+    clip-path: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-secondary:hover {
+    background: var(--sp-black);
+    color: #FFFFFF;
+    border-color: var(--sp-black);
+}
+
+/* ---------- Headings ---------- */
+
+h1 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--sp-black);
+    margin: 0 0 24px;
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border-left: 10px solid var(--sp-red);
+    box-shadow: 0 2px 0 var(--sp-black);
+}
+
+h2 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 7px 16px;
+    background: var(--sp-black);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--sp-red-dark);
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- KPI Summary Grid ---------- */
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.kpi-card {
+    background: var(--sp-card-bg);
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-red);
+    padding: 18px 20px;
+    box-shadow: var(--sp-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sp-shadow-elevated);
+}
+
+.kpi-card.highlight {
+    border-top-color: var(--sp-black);
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
+}
+
+.kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.kpi-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--sp-muted);
+    letter-spacing: 0.5px;
+}
+
+.kpi-icon {
+    font-size: 22px;
+}
+
+.kpi-value {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--sp-black);
+    line-height: 1.05;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.kpi-footer {
+    font-size: 12px;
+    color: var(--sp-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.kpi-pill {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.pill-success {
+    background: var(--sp-success-bg);
+    color: var(--sp-success);
+}
+
+.pill-warning {
+    background: var(--sp-warning-bg);
+    color: var(--sp-warning);
+}
+
+.pill-danger {
+    background: var(--sp-red-light);
+    color: var(--sp-red-dark);
+}
+
+.pill-info {
+    background: var(--sp-info-bg);
+    color: var(--sp-info);
+}
+
+/* ---------- Navigation Tabs ---------- */
+
+.nav-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 3px solid var(--sp-black);
+    margin-bottom: 22px;
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 4px 6px 0;
+}
+
+.tab-btn {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--sp-ink);
+    background: #E8E6E1;
+    border: 1px solid var(--sp-line);
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-btn:hover {
+    background: #FFFFFF;
+    color: var(--sp-red);
+}
+
+.tab-btn.active {
+    background: var(--sp-red);
+    color: #FFFFFF;
+    border-color: var(--sp-red);
+}
+
+.tab-badge {
+    background: var(--sp-black);
+    color: #FFFFFF;
+    font-size: 11px;
+    padding: 2px 6px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.tab-btn.active .tab-badge {
+    background: #FFFFFF;
+    color: var(--sp-red);
+}
+
+/* ---------- Tab Content Panels ---------- */
+
+.tab-panel {
+    display: none;
+    animation: tabFadeIn 0.25s ease-in-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Panels & Cards ---------- */
+
+.panel {
+    background: var(--sp-card-bg);
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-red);
+    padding: 24px 26px;
+    margin-bottom: 24px;
+    box-shadow: var(--sp-shadow);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid var(--sp-line);
+    padding-bottom: 14px;
+}
+
+.panel-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ---------- POS Terminal Layout ---------- */
+
+.pos-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 22px;
+}
+
+@media (max-width: 1024px) {
+    .pos-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pos-catalog {
+    background: var(--sp-card-bg);
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-red);
+    padding: 20px;
+    box-shadow: var(--sp-shadow);
+}
+
+.pos-cart-panel {
+    background: #FFFFFF;
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-black);
+    padding: 20px;
+    box-shadow: var(--sp-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Quick Promo Bar */
+
+.promo-bar-container {
+    background: #FFF5F5;
+    border: 2px dashed var(--sp-red);
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.promo-bar-title {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--sp-red-dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.promo-btn-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+}
+
+.promo-btn {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 12px;
+    background: #FFFFFF;
+    color: var(--sp-ink);
+    border: 1px solid var(--sp-red);
+    cursor: pointer;
+    clip-path: none;
+    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-btn strong {
+    font-size: 15px;
+    color: var(--sp-red);
+}
+
+.promo-btn span {
+    font-size: 11px;
+    color: var(--sp-muted);
+    font-family: 'Barlow', sans-serif;
+    margin-top: 2px;
+}
+
+.promo-btn:hover {
+    background: var(--sp-red-light);
+    transform: translateY(-1px);
+}
+
+.promo-btn.active {
+    background: var(--sp-red);
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px var(--sp-red-glow);
+}
+
+.promo-btn.active strong,
+.promo-btn.active span {
+    color: #FFFFFF;
+}
+
+/* POS Product Search & Grid */
+
+.pos-search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.pos-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 12px;
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.pos-card {
+    background: #FFFFFF;
+    border: 1px solid var(--sp-line);
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.pos-card:hover:not(.out-of-stock) {
+    border-color: var(--sp-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(232, 32, 42, 0.15);
+}
+
+.pos-card.out-of-stock {
+    opacity: 0.55;
+    background: #F9F9F8;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+.pos-card-sku {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sp-muted);
+    font-family: monospace;
+}
+
+.pos-card-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--sp-black);
+    margin: 4px 0;
+    line-height: 1.25;
+}
+
+.pos-card-meta {
+    font-size: 12px;
+    color: var(--sp-muted);
+    margin-bottom: 8px;
+}
+
+.pos-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--sp-paper);
+    padding-top: 8px;
+    margin-top: 6px;
+}
+
+.pos-card-price {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--sp-red);
+}
+
+.pos-card-stock {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    background: var(--sp-paper);
+    border-radius: 2px;
+}
+
+/* POS Cart & Summary */
+
+.cart-items-container {
+    flex: 1;
+    min-height: 220px;
+    max-height: 320px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--sp-line);
+    padding-bottom: 8px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--sp-line);
+    animation: itemEnter 0.2s ease;
+}
+
+@keyframes itemEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sp-black);
+}
+
+.cart-item-meta {
+    font-size: 11px;
+    color: var(--sp-muted);
+}
+
+.cart-qty-ctrl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 10px;
+}
+
+.qty-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    background: var(--sp-paper);
+    color: var(--sp-black);
+    border: 1px solid var(--sp-line);
+    clip-path: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.qty-btn:hover {
+    background: var(--sp-red);
+    color: #FFFFFF;
+    border-color: var(--sp-red);
+}
+
+.cart-item-price {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--sp-black);
+    min-width: 65px;
+    text-align: right;
+}
+
+.cart-summary {
+    background: var(--sp-paper);
+    padding: 14px;
+    margin-bottom: 16px;
+    border: 1px solid var(--sp-line);
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.cart-row.discount {
+    color: var(--sp-red);
+    font-weight: 600;
+}
+
+.cart-row.total {
+    border-top: 2px solid var(--sp-black);
+    padding-top: 8px;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    color: var(--sp-black);
+}
+
+.cart-row.total span:last-child {
+    font-size: 24px;
+    color: var(--sp-red);
+}
+
+/* ---------- Tables ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #FFFFFF;
+}
+
+th {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #FFFFFF;
+    background: var(--sp-black);
+    padding: 10px 14px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px 14px;
+    border: 1px solid var(--sp-line);
+    vertical-align: middle;
+}
+
+tr:nth-child(even) td {
+    background: #FAFAF9;
+}
+
+tr:hover td {
+    background: #FFF9F9;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 16px;
+    border: 1px solid var(--sp-line);
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.badge-authentic {
+    background: #111827;
+    color: #FCD34D;
+    border-left: 3px solid #F59E0B;
+}
+
+.badge-replica {
+    background: #374151;
+    color: #E5E7EB;
+    border-left: 3px solid #9CA3AF;
+}
+
+.badge-instock {
+    background: var(--sp-success-bg);
+    color: var(--sp-success);
+}
+
+.badge-lowstock {
+    background: var(--sp-warning-bg);
+    color: var(--sp-warning);
+}
+
+.badge-outstock {
+    background: var(--sp-red-light);
+    color: var(--sp-red);
+}
+
+.badge-reserved {
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border-left: 3px solid #3B82F6;
+}
+
+.badge-transit {
+    background: #FEF3C7;
+    color: #B45309;
+    border-left: 3px solid #F59E0B;
+}
+
+.badge-shipped {
+    background: #E0E7FF;
+    color: #4338CA;
+    border-left: 3px solid #6366F1;
+}
+
+.badge-delivered {
+    background: #DCFCE7;
+    color: #15803D;
+    border-left: 3px solid #22C55E;
+}
+
+.badge-damaged {
+    background: #FEE2E2;
+    color: #B91C1C;
+    border-left: 3px solid #EF4444;
+}
+
+/* ---------- Forms & Filter Controls ---------- */
+
+form p {
+    margin: 0 0 14px;
+}
+
+label {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--sp-black);
+    margin-bottom: 4px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 9px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--sp-ink);
+    background: #FFFFFF;
+    border: 1px solid var(--sp-line);
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--sp-red);
+    box-shadow: inset 0 -2px 0 var(--sp-red);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #A9A6A2;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 12px 16px;
+    border: 1px solid var(--sp-line);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+}
+
+/* ---------- Buttons ---------- */
+
+button {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    background: var(--sp-red);
+    border: none;
+    padding: 10px 24px;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover:not(:disabled) {
+    background: var(--sp-black);
+}
+
+button:disabled {
+    background: #C4C2BE;
+    cursor: not-allowed;
+    opacity: 0.7;
+    clip-path: none;
+}
+
+.btn-black {
+    background: var(--sp-black);
+}
+
+.btn-black:hover:not(:disabled) {
+    background: var(--sp-red);
+}
+
+.btn-small {
+    font-size: 14px;
+    padding: 5px 12px;
+    clip-path: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--sp-black);
+    border: 1px solid var(--sp-black);
+    clip-path: none;
+}
+
+.btn-outline:hover:not(:disabled) {
+    background: var(--sp-black);
+    color: #FFFFFF;
+}
+
+/* ---------- Modals ---------- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-backdrop.open {
+    display: flex;
+}
+
+.modal-dialog {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 600px;
+    border-top: 5px solid var(--sp-red);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlide 0.2s ease-out;
+}
+
+@keyframes modalSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: var(--sp-black);
+    color: #FFFFFF;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.modal-close {
+    background: transparent;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    clip-path: none;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--sp-red);
+}
+
+.modal-body {
+    padding: 20px 24px;
+}
+
+.modal-footer {
+    padding: 14px 24px;
+    background: var(--sp-paper);
+    border-top: 1px solid var(--sp-line);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ---------- Activity Audit Log ---------- */
+
+.log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.log-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--sp-line);
+    font-size: 13px;
+    background: #FFFFFF;
+    transition: background 0.15s ease;
+}
+
+.log-item:hover {
+    background: #FFFDFD;
+}
+
+.log-item:first-child {
+    border-left: 4px solid var(--sp-red);
+}
+
+.log-time {
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--sp-muted);
+    min-width: 75px;
+}
+
+.log-tag {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 6px;
+    height: fit-content;
+}
+
+.log-content {
+    flex: 1;
+}
+
+.log-actor {
+    font-weight: 700;
+    color: var(--sp-black);
+}
+
+@import "css/toast.css";

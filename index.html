@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakerpapi</title>
+</head>
+
+<body>
+  <script>
+    // client-side redirection
+    if (!localStorage.getItem("sp_current_user")) {
+      document.location.href = "module_1/login.html";
+    } else {
+      document.location.href = "dashboard.html";
+    }
+
+    if (!localStorage.getItem("sp_users")) {
+      localStorage.setItem("sp_users", JSON.stringify([
+        {
+          username: "admin",
+          password: "password123",
+          role: "admin",
+          roleName: "Admin 1"
+        },
+        {
+          username: "staff",
+          password: "password123",
+          role: "staff",
+          roleName: "Staff 1"
+        }
+      ]));
+    }
+
+  </script>
+</body>
+
+</html>
